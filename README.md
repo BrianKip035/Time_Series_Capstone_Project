@@ -1,5 +1,6 @@
 # PriceWise AI
-![kati](https://user-images.githubusercontent.com/117269915/231669221-b6d8694c-7ea4-453b-b5dc-be10664e92bb.png)
+![ts (1)](https://user-images.githubusercontent.com/94622826/231754567-1d56c0e3-8a02-420d-bf59-8339d304a919.jpg)
+
 
 
 # 1. BUSINESS UNDERSTANDING
