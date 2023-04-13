@@ -1,4 +1,5 @@
 # PriceWise AI
+![kati](https://user-images.githubusercontent.com/117269915/231669221-b6d8694c-7ea4-453b-b5dc-be10664e92bb.png)
 
 
 # 1. BUSINESS UNDERSTANDING
@@ -51,14 +52,17 @@ The differnt datasets were then merged tougether and the Date column format was 
 The Exploratory Data Analysis showed some observations on the data that was collected. Each product had a visualisation of it's price over time showing the different products change in price and also visualisations of inflation over time and the exchange rate of the dollar. 
 <br>
 Inflation is the rate at which the general level of prices for goods and services is rising, and a high inflation rate indicates a decrease in the purchasing power of a country's currency. From the graph, we can see that the 12-month inflation rate has been subject to fluctuations over the years. In the early years from 2014 to 2016, the inflation rate was relatively stable at around 6-8%, after which there was a gradual increase until 2017, where it peaked at around 11%. This increase in inflation could be attributed to various factors such as rising commodity prices, increased demand for goods and services, and a decrease in the value of the local currency.
-![My Image](Images/inflation.jpg)
+![inflationgraph](https://user-images.githubusercontent.com/117269915/231668848-ed4e4f64-0077-4b80-8b07-b28c4f4f6cdd.png)
+
 
 The buying price of a currency is the price at which a bank or foreign exchange dealer buys that currency, and a higher buying price of a currency usually indicates a stronger value of that currency in the market. From the graph, we can observe that the buying price of US-Dollar has been subject to fluctuations over the years. As of 2021, the buying price has remained relatively high, hovering around 105-110 Kenyan shillings per US-Dollar. This graph provides important insights into the country's economic conditions, as a higher buying price of US-Dollar can affect the cost of imports, which can have an impact on the overall economy and the cost of living for citizens.
-![My Image](Images/Exchange rate.png)
+![Exchange rate](https://user-images.githubusercontent.com/117269915/231668784-01b51138-34ec-4c4f-95c4-05c20062b8d6.png)
+
 
  The graph plots the prices of six commodities, including bread, refined vegetable oil, cows milk, diesel, maize meal, and gasoline, along with the 12-month inflation rate.Looking at the graph, we can see that the prices of all six commodities have been increasing over time, with some fluctuations. Gasoline prices have been the most volatile among all the commodities, while the prices of cows milk and bread have been relatively stable with minor fluctuations. The prices of refined vegetable oil, diesel, and maize meal have been increasing steadily over time.
+![all](https://user-images.githubusercontent.com/117269915/231668745-fa9be83a-751c-49a7-9397-c3190e301509.png)
 
-![My Image](Images/all.png)
+
 
 
 ## 5. Modelling
@@ -83,6 +87,19 @@ Therefore, we selected the LSTM model as our final model for time series forecas
 Forecasting is the process of making predictions or estimates about future events, trends, or outcomes based on historical data and other relevant information. It is commonly used in various fields, such as business, finance, economics, and meteorology, to make informed decisions and plans for the future. 
 
 ## 6. Deployment
-Our team has developed a web application for time series forecasting of stock prices using a deep learning model called LSTM. The application is built using the Streamlit framework, and allows users to select a specific year and month for which they want a price prediction. We have trained the LSTM model using historical stock price data and evaluated its performance using RMSE metric. We have found that the LSTM model outperformed other time series models we tested, and therefore we have selected it for deployment. The Interface lets you pick oout the month and year you want as well as the commodity and it provides the predicted price of the product. 
+There is a sidebar for selecting the commodity or  Economic indicator, month, and year
+Based on the user's selection, the app displays an image of the selected commodity and predicts its price for the selected month and year
+The app displays the forecasted price of the selected commodity.
+In this example, the user selected Bread as the commodity, May 2023 as the month and year, and the app predicted the price of Milk to be Ksh 57
+![App Deployment](https://user-images.githubusercontent.com/117269915/231668364-1cd2761f-08c4-4372-80ec-80173997b723.png)
+
 ## 7. Conclusions 
+1. Based on the results of this project, our time series model can provide valuable insights into commodity prices and economic indicators such as inflation rates and exchange rates. The developed models show  accuracy with an RMSE of less than 5% and can be used to forecast prices for the next 12 months with a reasonable degree of confidence.
+2. Investors and commodity buyers can use these forecasts to make informed decisions regarding their investments or purchasing decisions. For instance, they can take advantage of opportunities identified by the market analysis to buy or sell commodities at the right time to maximize profits.
+3. This  web-based application developed as part of this project provides traders and investors with reliable, real-time commodity price predictions, which can be continuously updated for ongoing accuracy. This will enable them to stay on top of the market and make informed decisions based on the latest information.
+4. Overall, our project highlights the potential of time series modeling in providing valuable insights into the dynamics of commodity prices and economic indicators, and how these insights can be leveraged to inform decision-making for investors and commodity buyers.
 ## 8. Recommendations
+1. Traders and Investors: By providing traders and investors with reliable real-time commodity price predictions, we can help them make better investment decisions. They can use our predictions to identify market trends and capitalize on opportunities for profit. This can be especially beneficial for traders and investors who specialize in commodities and are looking for ways to gain an edge in the market.
+2. Farmers and Producers: our time series commodity price predictions can  be useful for farmers and producers who rely on the prices of commodities like maize meal and diesel to make business decisions. By tracking the prices of these commodities, farmers can adjust their production schedules and ensure they have a steady supply of essential goods to sell at market. This can help them maximize profits and ensure the sustainability of their business.
+3. Monitor inflation rates: Since inflation rates can have a significant impact on the prices of commodities, it is important to keep a close eye on them so that Investors can use the forecasts to anticipate changes in inflation rates and make adjustments to their investments accordingly. High inflation rates can lead to higher prices of commodities, and therefore, it may be wise to invest in commodities that are likely to rise in price during inflationary periods.
+4. Government Agencies:  our time series commodity price predictions can be valuable to government agencies responsible for regulating the prices of essential commodities. By providing accurate forecasts, these agencies can better manage supply and demand, prevent price spikes, and ensure that essential goods are accessible to all citizens.
