@@ -1,9 +1,9 @@
-# PriceWise AI
-![ts (1)](https://user-images.githubusercontent.com/94622826/231754567-1d56c0e3-8a02-420d-bf59-8339d304a919.jpg)
+# PRICEWISE AI
+
+![mainimage png](https://user-images.githubusercontent.com/117269915/231759804-198953e9-c230-4a0b-a1f3-d87ac28a8f94.png)
 
 
-
-# 1. BUSINESS UNDERSTANDING
+## 1. BUSINESS UNDERSTANDING
 
 ## 1.1 Business Problem
 
@@ -50,42 +50,74 @@ he data was checked for missing values and some columns were found to have null 
 The differnt datasets were then merged tougether and the Date column format was corrected. There was a change in "forex_data" DataFrame by resampling the data to the end of the month, creating a new column for the end of the month dates. The Merged dataseets were then checked for null values and found none. 
 
 ## 4. EDA 
-The Exploratory Data Analysis showed some observations on the data that was collected. Each product had a visualisation of it's price over time showing the different products change in price and also visualisations of inflation over time and the exchange rate of the dollar. 
+To gain a better understanding of our dataset, we conducted various exploratory data analyses. We began with univariate analysis, which involved examining the price trends of bread, vegetable oil, milk, diesel, maize meal, gasoline, inflation, and exchange rates over the years. 
 <br>
+![bluebread](https://user-images.githubusercontent.com/117269915/231760169-a9d86f2f-6f95-49d2-8170-130bab5d60e0.png)
+![bluemaize](https://user-images.githubusercontent.c![bluediesel](https://user-images.githubusercontent.com/117269915/231760583-bed475b1-eb82-4de7-a0e2-e269deec8697.png))
+![bluemilk](https://user-images.githubusercontent.com/117269915/231760162-d920736b-5d3e-4c32-a2ea-3ab8913a4596.png)
+![blueveg](https://user-images.githubusercontent.com/117269915/231760165-32fdce20-4b88-45ba-9b09-a58789f1da30.png)
+
+![bluegas](https://user-images.githubusercontent.com/117269915/231760592-46508111-9cda-4484-a7cd-a844b6dc95e0.png)
+
+
+
 Inflation is the rate at which the general level of prices for goods and services is rising, and a high inflation rate indicates a decrease in the purchasing power of a country's currency. From the graph, we can see that the 12-month inflation rate has been subject to fluctuations over the years. In the early years from 2014 to 2016, the inflation rate was relatively stable at around 6-8%, after which there was a gradual increase until 2017, where it peaked at around 11%. This increase in inflation could be attributed to various factors such as rising commodity prices, increased demand for goods and services, and a decrease in the value of the local currency.
-![inflationgraph](https://user-images.githubusercontent.com/117269915/231668848-ed4e4f64-0077-4b80-8b07-b28c4f4f6cdd.png)
+![blueinflation](https://user-images.githubusercontent.com/117269915/231760596-f78874f7-9993-414b-86c4-e4aa18b071d2.png)
 
 
 The buying price of a currency is the price at which a bank or foreign exchange dealer buys that currency, and a higher buying price of a currency usually indicates a stronger value of that currency in the market. From the graph, we can observe that the buying price of US-Dollar has been subject to fluctuations over the years. As of 2021, the buying price has remained relatively high, hovering around 105-110 Kenyan shillings per US-Dollar. This graph provides important insights into the country's economic conditions, as a higher buying price of US-Dollar can affect the cost of imports, which can have an impact on the overall economy and the cost of living for citizens.
-![Exchange rate](https://user-images.githubusercontent.com/117269915/231668784-01b51138-34ec-4c4f-95c4-05c20062b8d6.png)
+![blueexchange](https://user-images.githubusercontent.com/117269915/231760589-12b50bdc-100c-476b-a141-4fafa3b5a3d4.png)
 
 
- The graph plots the prices of six commodities, including bread, refined vegetable oil, cows milk, diesel, maize meal, and gasoline, along with the 12-month inflation rate.Looking at the graph, we can see that the prices of all six commodities have been increasing over time, with some fluctuations. Gasoline prices have been the most volatile among all the commodities, while the prices of cows milk and bread have been relatively stable with minor fluctuations. The prices of refined vegetable oil, diesel, and maize meal have been increasing steadily over time.
+We then created a multipanel plot to display all six graphs, enabling us to discern trends over time. The graph plots the prices of six commodities, including bread, refined vegetable oil, cows milk, diesel, maize meal, and gasoline, along with the 12-month inflation rate.Looking at the graph, we can see that the prices of all six commodities have been increasing over time, with some fluctuations. Gasoline prices have been the most volatile among all the commodities, while the prices of cows milk and bread have been relatively stable with minor fluctuations. The prices of refined vegetable oil, diesel, and maize meal have been increasing steadily over time.
 ![all](https://user-images.githubusercontent.com/117269915/231668745-fa9be83a-751c-49a7-9397-c3190e301509.png)
 
 
 
 
 ## 5. Modelling
-### 5.1 Arima 
-Autoregressive Integrated Moving Average model is a statistical model for time series data that combines autoregression (AR) and moving average (MA) models, and can be used to make predictions based on past patterns in the data.
 
-### 5.2 Simple Exponential Smoothing
-this model is a  basic time series forecasting method that assumes that the future values of a time series are a weighted average of past values, with more recent values given more weight.
-### 5.3 Holt-Winters Exponential Smoothing (HWES)
-it is an extension of Simple Exponential Smoothing that also takes into account trends and seasonality in the data.
-### 5.4  Sarima Model
-this is a seasonal Autoregressive Integrated Moving Average model is an extension of ARIMA that explicitly models seasonal trends in the data.
+### 5.1 Arima Model
+In this section, the ARIMA model was used to make predictions on the test set for each commodity in the time series data. The values for p, d, and q were defined, and all possible combinations of these values were generated. For each commodity, the RMSE value was calculated for each combination of (p, d, q), and the combination with the lowest RMSE value was selected as the best fit for the ARIMA model. The RMSE values and corresponding (p, d, q) values for each commodity were stored in a dictionary and presented as a table. The results showed the RMSE values for each commodity and the corresponding values of (p, d, q) that minimized the RMSE value.after obtaining the best (p, d, q) values for each commodity, the ARIMA model was used to predict the values for the test set. The actual and predicted values were then plotted to visualize and compare the trends. These plots can help to evaluate the performance of the ARIMA model for each commodity.
+
+### 6 Model Combinations
+In this section, different model combinations (SARIMA, SES, HWES, and ARIMA) were tested to determine which combination produced the best results for the given time series data. A dictionary was defined to store the RMSE values for each model. The aim was to identify the combination of models that best captured the differences in the patterns of the data.
+
+### 6.1 Sarima Model
+In this section, the SARIMA model was used to make predictions on the test set for each commodity in the time series data. The SARIMA model, which is an extension of the ARIMA model that takes into account seasonality in the data, was fitted for each commodity with (1,1,1) and (1,1,1,12) as the order and seasonal order, respectively. The endogenous variable was selected as the train data for each commodity. The performance of the SARIMA model was evaluated on the test set by making predictions and calculating the RMSE value between the predicted values and the actual values. The RMSE values for each commodity and corresponding SARIMA model were stored in a dictionary and presented as a table. The results showed the RMSE values for each commodity and the performance of the SARIMA model on the given time series data. Based on the results, it was concluded that the SARIMA model performed better for some commodities (e.g., Milk (500ML)) than for others (e.g., Vegetable Oil (1L)). These findings suggested that the SARIMA model may not be the best choice for modeling all commodities in the time series data.
+
+### 6.2 Simple Exponential Smoothing (SES) Model
+In this section, a Simple Exponential Smoothing (SES) model was fitted to each column of the time series data. The model was used to make predictions on the test set for each commodity, and the root mean square error (RMSE) was calculated between the predicted values and the actual values to evaluate the model's performance. The SES model is a forecasting method that assigns exponentially decreasing weights over time to the previous observations, giving more weight to recent observations. For each commodity, the column was selected as the endogenous variable, and an SES model was fit using the training data. The model was then evaluated on the test set by making predictions and calculating the RMSE value. The results showed that the SES model performed better for some commodities (e.g., Milk (500ML)) than for others (e.g., Vegetable Oil (1L)). These findings suggest that the SES model may not be the best choice for modeling all commodities in the time series data. The RMSE values for each commodity and the corresponding SES model were stored in a dictionary and presented as a table.
+
+### 6.3 Holt-Winters Exponential Smoothing (HWES) Model
+In this section, the Holt-Winters Exponential Smoothing (HWES) model was used to make predictions on the test set for each commodity in the time series data. The HWES model is a variation of the Simple Exponential Smoothing (SES) model that takes into account seasonality and trend in the data. For each commodity, the endogenous variable was selected as the train data and an HWES model was fit with a seasonal period of 12, additive trend, and additive seasonality. The model was then evaluated on the test set by making predictions and calculating the RMSE value between the predicted values and the actual values. The RMSE values for each commodity and corresponding HWES model were stored in a dictionary and presented as a table. The results showed the RMSE values for each commodity and the performance of the HWES model on the given time series data. Based on the results, it can be concluded that the HWES model outperformed the SARIMA and SES models for most commodities in the time series data.
+
+### 6.4 Arima Model
+We then fitted an ARIMA (AutoRegressive Integrated Moving Average) model on each time series column in the given dataset. The order of the ARIMA model used was (1,1,1).
+
+The ARIMA models were trained on the training data, and the performance was evaluated on the test data using RMSE (Root Mean Squared Error). The lower the RMSE, the better the model's performance. 
+
+The results showed the RMSE values for each time series column, where the lowest RMSE values indicated better performance of the model. Compared to SES and HWES models, the ARIMA model generally performed better for most of the time series columns except for the "Exchange Rate (USD)" and "Inflation" columns where HWES performed better.
+
 ### 5.5  LSTM
-It is a type of recurrent neural network (RNN) that is well-suited for processing sequential data such as time series. LSTM networks have an internal memory state that allows them to remember information over long periods of time and selectively forget irrelevant information, making them particularly useful for modeling complex temporal relationships in data.
-### 5.6 Model selection
-In the process of selecting a suitable model for our time series forecasting task, we tested several models including SARIMA, Simple Exponential Smoothing, Holt-Winters Exponential Smoothing, and LSTM.
+It is a type of recurrent neural network (RNN) that is well-suited for processing sequential data such as time series. LSTM networks have an internal memory state that allows them to remember information over long periods of time and selectively forget irrelevant information, making them particularly useful for modeling complex temporal relationships in data. 
 
-We evaluated the performance of each model using the root mean squared error (RMSE) metric. After comparing the RMSE values of each model, we found that the LSTM model had the lowest RMSE, indicating that it was the most accurate model for our time series forecasting task.
+### 5.6 Forecasting
+At this point, we aimed to forecast future values for each time series in the dataset using the best model selected for each series to fit the model. We fitted the models and forecasted the future values for the next 12 months.
 
-Therefore, we selected the LSTM model as our final model for time series forecasting.
-### 5.7 Forecasting
-Forecasting is the process of making predictions or estimates about future events, trends, or outcomes based on historical data and other relevant information. It is commonly used in various fields, such as business, finance, economics, and meteorology, to make informed decisions and plans for the future. 
+The forecasted values were stored in the forecast_df DataFrame, and the index of the DataFrame was set to be the forecasted dates. The forecasted dates started from 2023-03-31 and went up to 2024-02-29 with a frequency of one month.
+
+
+### 5.7 MINIMAL VIABLE PRODUCT
+After conducting a thorough evaluation of various models, including ARIMA, SARIMA, HWES, and SES, the LSTM (Long Short-Term Memory) model was chosen as the Minimum Viable Product (MVP) for the time series project. The decision was primarily based on its superior performance, specifically, its low RMSE (Root Mean Squared Error) values, which indicates a high level of accuracy.
+
+The LSTM model demonstrated an ability to capture complex patterns and relationships within the time series data, allowing for more precise predictions of future values. Its ease of implementation and minimal preprocessing requirements made it a practical and cost-effective choice for an MVP.
+
+The LSTM model was able to learn quickly from a small amount of training data and generate accurate predictions, which is crucial for an MVP. Its efficiency and accuracy make it a promising solution for the time series project.
+ 
+ It's output as seen below was good a predicting the prices.
+
+![output](https://user-images.githubusercontent.com/117269915/231740547-087b794c-f1c8-4aa6-9f53-3433421d3b0b.png)
 
 ## 6. Deployment
 There is a sidebar for selecting the commodity or  Economic indicator, month, and year
